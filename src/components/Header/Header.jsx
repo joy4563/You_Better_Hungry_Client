@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -12,10 +13,24 @@ const Header = () => {
                 console.error(error);
             });
     };
+
+    // hoover
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovering(false);
+    };
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <Link className="btn btn-ghost normal-case text-xl">
+                    You Better HUngry
+                </Link>
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg
@@ -61,14 +76,25 @@ const Header = () => {
             <div className="navbar-end">
                 {user ? (
                     <>
-                        <h3>{user.email}</h3>{" "}
-                        <button onClick={handleLogOut} className="btn btn-sm">
+                        <p>
+                            <span>
+                                {isHovering && <span>{user.email}</span>}
+                            </span>{" "}
+                            <span
+                                onMouseOver={handleMouseOver}
+                                onMouseOut={handleMouseOut}
+                            >
+                                <FaUser></FaUser>
+                            </span>
+                        </p>
+
+                        <button onClick={handleLogOut} className="btn btn-sm ml-4">
                             Log Out
                         </button>
                     </>
                 ) : (
                     <Link to="/login">
-                        <button class="btn btn-primary">Log In</button>
+                        <button className="btn btn-primary">Log In</button>
                     </Link>
                 )}
             </div>
