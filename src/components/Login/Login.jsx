@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
-
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
 
     const handleLogIn = (event) => {
         event.preventDefault();
@@ -23,6 +23,19 @@ const Login = () => {
             });
     };
 
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then((result) => {
+                const currentUser = result.user;
+                console.log(currentUser);
+                setUser(currentUser);
+            })
+            .catch((error) => {
+                console.log("error", error.message);
+            });
+        // console.log(user);
+    };
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -30,8 +43,30 @@ const Login = () => {
                     <h1 className="text-5xl font-bold">Login now !</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="form-control mt-6">
+                        <button
+                            className="btn btn-primary"
+                            onClick={handleGoogleSignIn}
+                        >
+                            <span className="mr-2">
+                                <FaGoogle></FaGoogle>
+                            </span>{" "}
+                            Log In with Google
+                        </button>
+                    </div>
                     <form onSubmit={handleLogIn} className="card-body">
                         <div className="form-control">
+                            <div className="form-control my-6">
+                                <button className="btn btn-primary">
+                                    <span className="mr-2">
+                                        <FaGithub></FaGithub>
+                                    </span>
+                                    Log In with GitHub
+                                </button>
+                            </div>
+                            <hr />
+                            <p className=" text-center">or</p>
+                            <hr />
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>

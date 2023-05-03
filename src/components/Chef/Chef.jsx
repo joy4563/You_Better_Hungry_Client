@@ -1,5 +1,6 @@
 import React from "react";
 import { FaThumbsUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Chef = ({ chef }) => {
     const {
@@ -12,21 +13,28 @@ const Chef = ({ chef }) => {
     } = chef;
 
     return (
-        <div className="bg-red-600">
+        <div className="bg-red-600 mx-auto p-5">
             <img
-                className="h-80  w-5/6 rounded-lg mb-4"
+                className="h-80  w-full rounded-lg mb-3"
                 src={chefPicture}
                 alt=""
             />
-            <p className="font-bold text-xl">Name:{chefName}</p>
-            <p>{yearsOfExperience} Years of Experience</p>
-            <p>Total Recipe:{numberOfRecipes}</p>
+            <p className="mb-1">
+                Name: <span className="font-bold text-xl">{chefName}</span>
+            </p>
+            <p className="mb-1">{yearsOfExperience} Years of Experience</p>
+            <p className="mb-1">Total Recipe:{numberOfRecipes}</p>
             <p className="flex items-center gap-2">
-                <span>
+                <span> Likes:</span>
+                <span className="flex items-center gap-1 justify-center">
+                    <span>{likes}</span>
                     <FaThumbsUp></FaThumbsUp>
                 </span>
-                <span>{likes}</span>
             </p>
+            <Link to= {`/chefs/${id}`} ><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-5">
+                View Recipes
+            </button></Link>
+            
         </div>
     );
 };

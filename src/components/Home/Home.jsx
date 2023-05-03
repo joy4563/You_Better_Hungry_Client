@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div className="container mx-auto">
             <h3>This is home</h3>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {chefs.map((chef) => (
                     <Chef key={chef.id} chef={chef}></Chef>
                 ))}

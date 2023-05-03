@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { FaUser } from "react-icons/fa";
-
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+
 
     const handleLogOut = () => {
         logOut()
@@ -76,9 +76,9 @@ const Header = () => {
             <div className="navbar-end">
                 {user ? (
                     <>
-                        <p>
+                        <p className="flex">
                             <span>
-                                {isHovering && <span>{user.email}</span>}
+                                {isHovering && <span>{user.displayName}</span>}
                             </span>{" "}
                             <span
                                 onMouseOver={handleMouseOver}
@@ -88,7 +88,10 @@ const Header = () => {
                             </span>
                         </p>
 
-                        <button onClick={handleLogOut} className="btn btn-sm ml-4">
+                        <button
+                            onClick={handleLogOut}
+                            className="btn btn-sm ml-4"
+                        >
                             Log Out
                         </button>
                     </>
