@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, gitHubSignIn } = useContext(AuthContext);
 
     const handleLogIn = (event) => {
         event.preventDefault();
@@ -28,12 +28,22 @@ const Login = () => {
             .then((result) => {
                 const currentUser = result.user;
                 console.log(currentUser);
-                setUser(currentUser);
             })
             .catch((error) => {
                 console.log("error", error.message);
             });
         // console.log(user);
+    };
+
+    const handleGitHubSignIn = () => {
+        gitHubSignIn()
+            .then((result) => {
+                const currentUser = result.user;
+                console.log(currentUser);
+            })
+            .catch((error) => {
+                console.log("error", error.message);
+            });
     };
 
     return (
@@ -43,9 +53,9 @@ const Login = () => {
                     <h1 className="text-5xl font-bold">Login now !</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div className="form-control mt-6">
+                    <div className="form-control mt-6 mx-2">
                         <button
-                            className="btn btn-primary"
+                            className="btn bg-green-500"
                             onClick={handleGoogleSignIn}
                         >
                             <span className="mr-2">
@@ -54,16 +64,20 @@ const Login = () => {
                             Log In with Google
                         </button>
                     </div>
+
+                    <div className="form-control my-6 mx-2 ">
+                        <button
+                            className="btn bg-gray-700"
+                            onClick={handleGitHubSignIn}
+                        >
+                            <span className="mr-2">
+                                <FaGithub></FaGithub>
+                            </span>
+                            Log In with GitHub
+                        </button>
+                    </div>
                     <form onSubmit={handleLogIn} className="card-body">
                         <div className="form-control">
-                            <div className="form-control my-6">
-                                <button className="btn btn-primary">
-                                    <span className="mr-2">
-                                        <FaGithub></FaGithub>
-                                    </span>
-                                    Log In with GitHub
-                                </button>
-                            </div>
                             <hr />
                             <p className=" text-center">or</p>
                             <hr />
@@ -88,19 +102,19 @@ const Login = () => {
                                 placeholder="password"
                                 className="input input-bordered"
                             />
-                            <label className="label">
-                                <a
-                                    href="#"
-                                    className="label-text-alt link link-hover"
-                                >
-                                    Forgot password?
-                                </a>
-                            </label>
+
+                            <p className="mt-3">
+                                New here?{" "}
+                                <span className="text-blue-800 font-bold text-lg">
+                                    <Link to="/register"> Register now!</Link>
+                                </span>
+                            </p>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+                                Log in
+                            </button>
                         </div>
-                        <Link to="/register">New here? Register now!</Link>
                     </form>
                 </div>
             </div>

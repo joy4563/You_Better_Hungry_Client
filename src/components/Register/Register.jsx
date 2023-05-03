@@ -93,12 +93,13 @@ const Register = () => {
                                     className="input input-bordered"
                                 />
                                 <label className="my-2 ">
-                                    Already have an account? <Link
+                                    Already have an account?{" "}
+                                    <Link
                                         to="/login"
                                         className="label-text-alt link link-hover"
                                     >
                                         <span className="text-blue-800 font-bold text-lg">
-                                        Log in now!
+                                            Log in now!
                                         </span>
                                     </Link>
                                 </label>
@@ -107,7 +108,7 @@ const Register = () => {
                                 {errors}
                             </p>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">
+                                <button className="btn bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500hover:to-yellow-500">
                                     Register
                                 </button>
                             </div>
