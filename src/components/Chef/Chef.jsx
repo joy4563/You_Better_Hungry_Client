@@ -13,7 +13,7 @@ const Chef = ({ chef }) => {
     } = chef;
 
     return (
-        <div className="bg-red-600 mx-auto p-5">
+        <div className="bg-gray-100 mx-auto p-5 rounded-md border border-gray-200">
             <img
                 className="h-80  w-full rounded-lg mb-3"
                 src={chefPicture}

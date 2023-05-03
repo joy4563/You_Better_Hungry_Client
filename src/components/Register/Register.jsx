@@ -1,29 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Register = () => {
     const { user, createUser } = useContext(AuthContext);
-    console.log(user.displayName);
+    const [errors, setErrors] = useState("");
+    // console.log(user?.displayName);
 
     const handleRegister = (event) => {
         event.preventDefault();
+        setErrors("");
+
         const form = event.target;
         const email = form.email.value;
         const name = form.name.value;
         const password = form.password.value;
         console.log(email, name, password);
 
-        createUser(email, password, name)
-            .then((result) => {
-                const loggedUser = result.user;
-                loggedUser.displayName = name;
-                console.log(loggedUser);
-                form.reset();
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        if (password.length < 6) {
+            setErrors("Password at least 6 chaaracter");
+            return;
+        } else {
+            createUser(email, password, name)
+                .then((result) => {
+                    const loggedUser = result.user;
+                    loggedUser.displayName = name;
+                    console.log(loggedUser);
+                    form.reset();
+                })
+                .catch((error) => {
+                    console.log(error);
+                    setErrors(error.message);
+                });
+        }
     };
     return (
         <div>
@@ -39,6 +48,7 @@ const Register = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input
+                                    required
                                     type="email"
                                     name="email"
                                     placeholder="email"
@@ -50,6 +60,7 @@ const Register = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input
+                                    required
                                     type="text"
                                     name="name"
                                     placeholder="name"
@@ -58,26 +69,46 @@ const Register = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
+                                    <span className="label-text">
+                                        Photo URL
+                                    </span>
+                                </label>
+                                <input
+                                    required
+                                    type="text"
+                                    name="photoURL"
+                                    placeholder="Photo URL"
+                                    className="input input-bordered"
+                                />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input
+                                    required
                                     type="password"
                                     name="password"
                                     placeholder="password"
                                     className="input input-bordered"
                                 />
-                                <label className="label">
-                                    <Link
+                                <label className="my-2 ">
+                                    Already have an account? <Link
                                         to="/login"
                                         className="label-text-alt link link-hover"
                                     >
-                                        Already have an account? Log in now!
+                                        <span className="text-blue-800 font-bold text-lg">
+                                        Log in now!
+                                        </span>
                                     </Link>
                                 </label>
                             </div>
+                            <p className="text-red-500 font-semibold ">
+                                {errors}
+                            </p>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">
-                                    Login
+                                    Register
                                 </button>
                             </div>
                         </form>
