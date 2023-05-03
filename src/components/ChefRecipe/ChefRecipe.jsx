@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 
 const ChefRecipe = () => {
     const chefDetails = useLoaderData();
-    console.log(chefDetails[0]);
+    console.log(chefDetails[0].recipe);
     const {
         id,
         chefPicture,
@@ -18,7 +18,7 @@ const ChefRecipe = () => {
     return (
         <div className="text-lg ">
             {/* banner */}
-            <div className="md:flex gap-6  items-center bg-orange-300 border border-gray-400 px-4 py-9">
+            <div className="md:flex gap-6  items-center bg-gray-300 border border-gray-400 px-4 py-9">
                 <div>
                     <img
                         className="mb-4 md:mb-0  rounded-md"
@@ -53,10 +53,18 @@ const ChefRecipe = () => {
                     </p>
                     <p className="mb-2">
                         {" "}
-                        <span className="font-semibold text-xl mr-1">Bio: </span>
+                        <span className="font-semibold text-xl mr-1">
+                            Bio:{" "}
+                        </span>
                         {shortBio}
                     </p>
                 </div>
+            </div>
+
+            <div>
+                {recipe.map((recipe) => (
+                    <>{recipe.recipeName}</>
+                ))}
             </div>
         </div>
     );

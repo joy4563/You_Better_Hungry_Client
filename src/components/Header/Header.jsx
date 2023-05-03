@@ -5,7 +5,6 @@ import { FaUser } from "react-icons/fa";
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
 
-
     const handleLogOut = () => {
         logOut()
             .then()
@@ -26,80 +25,65 @@ const Header = () => {
     };
 
     return (
-        <div className="navbar bg-base-100">
-            <div className="navbar-start">
-                <Link className="btn btn-ghost normal-case text-xl">
-                    You Better HUngry
-                </Link>
-                <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16"
-                            />
-                        </svg>
-                    </label>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-                    >
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
+        <div>
+            <div className="flex justify-between  bg-primary text-primary-content px-2 py-3">
+                <div className="">
+                    <div className="flex flex-col items-center md:flex-row ">
+                        <Link className="btn btn-ghost normal-case text-lg md:text-xl  hover:bg-green-300 hover:text-black">
+                            You Better HUngry
+                        </Link>
 
-                        <li>
-                            <Link to="/blog">Blog</Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-
-                    <li>
-                        <Link to="/blog">Blog</Link>
-                    </li>
-                </ul>
-            </div>
-            <div className="navbar-end">
-                {user ? (
-                    <>
-                        <p className="flex">
-                            <span>
-                                {isHovering && <span>{user.displayName}</span>}
-                            </span>{" "}
-                            <span
-                                onMouseOver={handleMouseOver}
-                                onMouseOut={handleMouseOut}
+                        <div>
+                            {" "}
+                            <Link
+                                className="btn btn-ghost normal-case  hover:bg-green-300 hover:text-black"
+                                to="/"
                             >
-                                <FaUser></FaUser>
-                            </span>
-                        </p>
+                                Home
+                            </Link>
+                            <Link
+                                className="btn btn-ghost normal-case hover:bg-green-300 hover:text-black"
+                                to="/blog"
+                            >
+                                Blog
+                            </Link>
+                        </div>
+                    </div>
+                </div>
 
-                        <button
-                            onClick={handleLogOut}
-                            className="btn btn-sm ml-4"
-                        >
-                            Log Out
-                        </button>
-                    </>
-                ) : (
-                    <Link to="/login">
-                        <button className="btn btn-primary">Log In</button>
-                    </Link>
-                )}
+                <div className="flex items-center ">
+                    {user ? (
+                        <>
+                            <p className="flex items-center">
+                                <span>
+                                    {isHovering && (
+                                        <span>{user?.displayName}</span>
+                                    )}
+                                </span>{" "}
+                                <span
+                                    onMouseOver={handleMouseOver}
+                                    onMouseOut={handleMouseOut}
+                                    className="text-black bg-white rounded-full p-2 ml-2"
+                                >
+                                    <FaUser></FaUser>
+                                </span>
+                            </p>
+
+                            <button
+                                onClick={handleLogOut}
+                                className="btn  ml-2 text-white bg-gradient-to-r from-green-500 to-pink-500 hover:bg-gradient-to-l  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                            >
+                                Log Out
+                            </button>
+                        </>
+                    ) : (
+                        <Link to="/login">
+                            <button className="btn  ml-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                                Log In
+                            </button>
+                        </Link>
+                    )}
+                </div>
             </div>
         </div>
     );
