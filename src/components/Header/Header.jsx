@@ -4,6 +4,8 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { FaUser } from "react-icons/fa";
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    const picture = user?.photoURL;
+    // console.log(user.photoURL);
 
     const handleLogOut = () => {
         logOut()
@@ -63,9 +65,19 @@ const Header = () => {
                                 <span
                                     onMouseOver={handleMouseOver}
                                     onMouseOut={handleMouseOut}
-                                    className="text-black bg-white rounded-full p-2 ml-2"
+                                    className="text-black bg-white rounded-full p-1 ml-2"
                                 >
-                                    <FaUser></FaUser>
+                                    <span>
+                                        {picture ? (
+                                            <img
+                                                className="h-10 w-10 rounded-full"
+                                                src={picture}
+                                                alt=""
+                                            />
+                                        ) : (
+                                            <FaUser className="h-6 w-6"></FaUser>
+                                        )}
+                                    </span>
                                 </span>
                             </p>
 

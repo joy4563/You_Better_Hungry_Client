@@ -14,8 +14,9 @@ const Register = () => {
         const form = event.target;
         const email = form.email.value;
         const name = form.name.value;
+        const URL = form.photoURL.value;
         const password = form.password.value;
-        console.log(email, name, password);
+        console.log(email, name, password,URL);
 
         if (password.length < 6) {
             setErrors("Password at least 6 chaaracter");
@@ -25,6 +26,7 @@ const Register = () => {
                 .then((result) => {
                     const loggedUser = result.user;
                     loggedUser.displayName = name;
+                    loggedUser.photoURL = URL;
                     console.log(loggedUser);
                     form.reset();
                 })
