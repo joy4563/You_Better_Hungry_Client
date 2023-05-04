@@ -5,14 +5,13 @@ import Chef from "../Chef/Chef";
 
 const Home = () => {
     const chefs = useLoaderData();
-    // console.log(chefs);
+    const latest= chefs[0].recipe
+    const latest2= chefs[5].recipe
+    console.log(latest);
 
     return (
         <div className="container mx-auto">
-            <div
-                className="grid grid-cols-1 md:grid-cols-2 mb-10 items-center gap-5 text-justify bg-slate-200 px-5 py-10  "
-                
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 mb-10 items-center gap-5 text-justify bg-slate-200 px-5 py-10  ">
                 <img
                     className="rounded-md border border-gray-800 "
                     src="https://7esl.com/wp-content/uploads/2022/08/American-Food.jpg"
@@ -39,10 +38,48 @@ const Home = () => {
                     enthusiasts around the world.
                 </p>
             </div>
-            <p className="text-3xl md:text-5xl font-extrabold text-center my-10">Available Chefs</p>
+            <p className="text-3xl md:text-5xl font-extrabold text-center my-10">
+                Available Chefs
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {chefs.map((chef) => (
                     <Chef key={chef.id} chef={chef}></Chef>
+                ))}
+            </div>
+
+            {/* latest from american chef */}
+
+            <p className="text-3xl md:text-5xl font-extrabold text-center my-10">
+                Latest from American Chefs
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6 mx-3">
+                {latest.map((rec) => (
+                    <div
+                        key={rec.recipeId}
+                        className="border border-gray-400 bg-gray-200 p-2 rounded-md"
+                    >
+                        <img
+                            className="rounded-md mb-2"
+                            src={rec.recipeImage}
+                            alt=""
+                        />
+                        <p className="font-semibold mr-1">{rec.recipeName}</p>
+                    </div>
+                ))}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-3">
+                {latest2.map((rec) => (
+                    <div
+                        key={rec.recipeId}
+                        className="border border-gray-400 bg-gray-200 p-2 rounded-md"
+                    >
+                        <img
+                            className="rounded-md mb-2"
+                            src={rec.recipeImage}
+                            alt=""
+                        />
+                        <p className="font-semibold mr-1">{rec.recipeName}</p>
+                    </div>
                 ))}
             </div>
         </div>

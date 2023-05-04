@@ -8,7 +8,14 @@ const PrivateRout = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <progress className="progress w-56"></progress>;
+        return (
+            <div
+                className="radial-progress bg-primary text-primary-content border-4 border-primary text-center"
+                style={{ "--value": 70 }}
+            >
+                70%
+            </div>
+        );
     }
     if (user) {
         return children;

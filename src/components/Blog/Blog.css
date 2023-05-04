@@ -1,0 +1,33 @@
+.bg-image {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.back {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyx2HIw5F6Yw-a6-5k6Qo9NM1A8GsXOCapnQ&usqp=CAU");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.back section {
+    background-color: rgb(27, 219, 155);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(27, 201, 231);
+    border-radius: 20px;
+}
+
+.first-section {
+    text-align: justify;
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.section-style {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 20px;
+    margin: 5px;
+}
