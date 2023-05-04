@@ -1,10 +1,11 @@
 import React from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import Recipe from "../Recipe/Recipe";
 
 const ChefRecipe = () => {
     const chefDetails = useLoaderData();
-    console.log(chefDetails[0].recipe);
+    // console.log(chefDetails[0].recipe);
     const {
         id,
         chefPicture,
@@ -18,10 +19,10 @@ const ChefRecipe = () => {
     return (
         <div className="text-lg ">
             {/* banner */}
-            <div className="md:flex gap-6  items-center bg-gray-300 border border-gray-400 px-4 py-9">
+            <div className="md:flex gap-6  items-center bg-gray-300 border border-gray-400 px-4 py-9 mb-11">
                 <div>
                     <img
-                        className="mb-4 md:mb-0  rounded-md"
+                        className="mb-4 md:mb-0 md:mr-72  rounded-md"
                         src={chefPicture}
                         alt=""
                     />
@@ -48,7 +49,7 @@ const ChefRecipe = () => {
                         </span>
                         {likes}{" "}
                         <span className="ml-1">
-                            <FaThumbsUp></FaThumbsUp>
+                            <FaThumbsUp className="text-blue-500"></FaThumbsUp>
                         </span>
                     </p>
                     <p className="mb-2">
@@ -61,9 +62,9 @@ const ChefRecipe = () => {
                 </div>
             </div>
 
-            <div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
                 {recipe.map((recipe) => (
-                    <>{recipe.recipeName}</>
+                    <Recipe key={recipe.recipeId} recipe={recipe}></Recipe>
                 ))}
             </div>
         </div>

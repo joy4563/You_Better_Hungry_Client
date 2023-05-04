@@ -53,10 +53,10 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className="flex items-center ">
+                <div className="flex items-center flex-col gap-2 md:flex-row">
                     {user ? (
                         <>
-                            <p className="flex items-center">
+                            <p className="flex items-center  ">
                                 <span>
                                     {isHovering && (
                                         <span>{user?.displayName}</span>
