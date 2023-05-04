@@ -7,7 +7,7 @@ const Home = () => {
     const chefs = useLoaderData();
     const latest= chefs[0].recipe
     const latest2= chefs[5].recipe
-    console.log(latest);
+    // console.log(latest);
 
     return (
         <div className="container mx-auto">
