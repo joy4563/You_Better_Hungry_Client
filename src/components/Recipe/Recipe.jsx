@@ -2,9 +2,18 @@ import React from "react";
 import { FaBookmark, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Recipe = ({ recipe }) => {
     const { id, recipeName, recipeImage, method, ingredients, rating } = recipe;
     // console.log(recipe);
+
+    const handleFavourite = (event) => {
+        // console.log("Favourite");
+        toast("This is added as your Favourite recipe!");
+        event.target.disabled = true;
+    };
     return (
         <div>
             <div className="bg-gray-100 mx-auto p-5 rounded-md border border-gray-200 flex flex-col ">
@@ -17,7 +26,7 @@ const Recipe = ({ recipe }) => {
                     <span className="font-semibold mr-1"> Name:</span>{" "}
                     <span className="font-extrabold text-xl">{recipeName}</span>
                 </p>
-                <div className="flex">
+                <div className="flex items-center mb-4">
                     <div className=" mb-3 flex-grow">
                         <span className="font-semibold mr-2 ">Ratings:</span>
                         {rating}
@@ -32,17 +41,14 @@ const Recipe = ({ recipe }) => {
                         ></Rating>
                     </div>
                     <div>
-                      
                         <button
                             type="submit"
-                            onClick={(event) => {
-                        
-                                event.target.disabled = true;
-                            }}
+                            onClick={handleFavourite}
                             className="btn btn-success"
                         >
                             Favourite
                         </button>
+                        <ToastContainer />
                     </div>
                 </div>
 
