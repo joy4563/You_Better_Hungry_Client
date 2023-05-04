@@ -82,6 +82,64 @@ const Home = () => {
                     </div>
                 ))}
             </div>
+
+            {/* 2nd extra section */}
+            <div>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-center mt-16 mb-5">
+                    The Life of a Chef
+                </h2>
+                <p className="text-center text-lg">
+                    The life of a chef can be demanding and challenging, yet
+                    also rewarding. Here are some aspects of what a chef's life
+                    might entail:
+                </p>
+                <ol className="grid grid-cols-1 md:grid-cols-3 gap-4 my-4 mx-3">
+                    <li className=" border border-gray-300 bg-gray-200 p-4 rounded-md text-lg">
+                        <strong>Long hours:</strong> Chefs often work long,
+                        irregular hours that can include weekends, evenings, and
+                        holidays. They might have to wake up early in the
+                        morning to prepare for the day or stay late into the
+                        night to close the kitchen.
+                    </li>
+                    <li className=" border border-gray-300 bg-gray-200 p-4 rounded-md text-lg">
+                        <strong>High-pressure environment:</strong> Working in a
+                        kitchen can be high-pressure and fast-paced, with many
+                        tasks to complete in a short amount of time. Chefs need
+                        to be able to multitask, stay organized, and work
+                        efficiently to keep up with demand.
+                    </li>
+                    <li className=" border border-gray-300 bg-gray-200 p-4 rounded-md text-lg">
+                        <strong>Creative expression:</strong> Chefs have the
+                        opportunity to express their creativity and culinary
+                        skills through developing new dishes, experimenting with
+                        new ingredients, and creating unique flavor
+                        combinations.
+                    </li>
+                    <li className=" border border-gray-300 bg-gray-200 p-4 rounded-md text-lg">
+                        <strong>Physical demands:</strong> The job of a chef can
+                        be physically demanding, as it requires standing for
+                        long periods of time, lifting heavy pots and pans, and
+                        working in hot environments.
+                    </li>
+                    <li className=" border border-gray-300 bg-gray-200 p-4 rounded-md text-lg">
+                        <strong>Teamwork:</strong> Chefs need to work closely
+                        with their team, including line cooks, prep cooks, and
+                        servers, to ensure that the kitchen runs smoothly and
+                        dishes are prepared and served on time.
+                    </li>
+                    <li className=" border border-gray-300 bg-gray-200 p-4 rounded-md text-lg">
+                        <strong>Continuous learning:</strong> Chefs need to stay
+                        up-to-date with industry trends, new cooking techniques,
+                        and emerging ingredients to stay relevant in the
+                        competitive culinary world.
+                    </li>
+                </ol>
+                <p className="text-center text-lg">
+                    Despite the challenges, many chefs find their work
+                    incredibly fulfilling and enjoy the opportunity to share
+                    their passion for food with others.
+                </p>
+            </div>
         </div>
     );
 };
