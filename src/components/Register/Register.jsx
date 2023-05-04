@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Register = () => {
     const { user, createUser } = useContext(AuthContext);
     const [errors, setErrors] = useState("");
     // console.log(user?.displayName);
+
+    const navigate = useNavigate();
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -16,7 +18,7 @@ const Register = () => {
         const name = form.name.value;
         const URL = form.photoURL.value;
         const password = form.password.value;
-        console.log(email, name, password,URL);
+        // console.log(email, name, password, URL);
 
         if (password.length < 6) {
             setErrors("Password at least 6 chaaracter");
@@ -27,11 +29,12 @@ const Register = () => {
                     const loggedUser = result.user;
                     loggedUser.displayName = name;
                     loggedUser.photoURL = URL;
-                    console.log(loggedUser);
+                    // console.log(loggedUser);
                     form.reset();
+                    navigate('/');
                 })
                 .catch((error) => {
-                    console.log(error);
+                    // console.log(error);
                     setErrors(error.message);
                 });
         }
@@ -39,8 +42,8 @@ const Register = () => {
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
+                <div className="hero-content flex-col ">
+                    <div className="text-center ">
                         <h1 className="text-5xl font-bold">Register now !</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

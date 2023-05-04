@@ -10,7 +10,7 @@ const PrivateRout = ({ children }) => {
     if (loading) {
         return (
             <div
-                className="radial-progress bg-primary text-primary-content border-4 border-primary text-center"
+                className="radial-progress bg-primary text-primary-content border-4 border-primary text-center items-center justify-center"
                 style={{ "--value": 70 }}
             >
                 70%

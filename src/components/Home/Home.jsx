@@ -38,7 +38,7 @@ const Home = () => {
                     enthusiasts around the world.
                 </p>
             </div>
-            <p className="text-3xl md:text-5xl font-extrabold text-center my-10">
+            <p className="text-3xl md:text-5xl font-extrabold text-center my-16">
                 Available Chefs
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -49,8 +49,8 @@ const Home = () => {
 
             {/* latest from american chef */}
 
-            <p className="text-3xl md:text-5xl font-extrabold text-center my-10">
-                Latest from American Chefs
+            <p className="text-3xl md:text-5xl font-extrabold text-center my-16">
+                Latest recipe from American Chefs
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6 mx-3">
                 {latest.map((rec) => (
@@ -85,7 +85,7 @@ const Home = () => {
 
             {/* 2nd extra section */}
             <div>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-center mt-16 mb-5">
+                <h2 className="text-3xl md:text-5xl font-extrabold text-center mt-20 mb-5">
                     The Life of a Chef
                 </h2>
                 <p className="text-center text-lg">

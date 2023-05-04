@@ -1,6 +1,8 @@
 import React from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
+
 
 const Chef = ({ chef }) => {
     const {
@@ -14,11 +16,14 @@ const Chef = ({ chef }) => {
 
     return (
         <div className="bg-gray-100 mx-auto p-5 rounded-md border border-gray-200 ">
-            <img
-                className="h-80  w-full rounded-lg mb-3"
-                src={chefPicture}
-                alt=""
-            />
+            <LazyLoad offset={300} >
+                <img
+                    className=" w-full rounded-lg mb-3"
+                    src={chefPicture}
+                    alt=""
+                />
+            </LazyLoad>
+
             <p className="mb-3 ">
                 <span className="font-semibold mr-1"> Name:</span>{" "}
                 <span className="font-extrabold text-xl">{chefName}</span>

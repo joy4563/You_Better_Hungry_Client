@@ -12,13 +12,15 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
-        errorElement:<ErrorPage></ErrorPage>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
-  
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: ({ params }) => fetch(`http://localhost:5000/chefs`),
+                loader: ({ params }) =>
+                    fetch(
+                        `https://you-better-hungry-server-joy4563.vercel.app/chefs`
+                    ),
             },
             {
                 path: "/blog",
@@ -40,7 +42,9 @@ const router = createBrowserRouter([
                     </PrivateRout>
                 ),
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/chefs/${params.id}`),
+                    fetch(
+                        `https://you-better-hungry-server-joy4563.vercel.app/chefs/${params.id}`
+                    ),
             },
         ],
     },

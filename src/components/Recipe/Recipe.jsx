@@ -54,8 +54,8 @@ const Recipe = ({ recipe }) => {
                 <p className="mb-3">
                     <span className="font-semibold mr-1">Ingridients:</span>
                     <span>
-                        {ingredients.map((n) => (
-                            <>{n}, </>
+                        {ingredients.map((n,i) => (
+                            <span key={i}>{n}, </span>
                         ))}
                     </span>
                 </p>

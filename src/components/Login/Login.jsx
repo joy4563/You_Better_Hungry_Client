@@ -27,7 +27,7 @@ const Login = () => {
             })
             .catch((error) => {
                 setErrors(error.message);
-                console.log(error);
+                // console.log(error);
             });
     };
 
@@ -35,10 +35,12 @@ const Login = () => {
         googleSignIn()
             .then((result) => {
                 const currentUser = result.user;
-                console.log(currentUser);
+                navigate(from);
+                // console.log(currentUser);
             })
             .catch((error) => {
-                console.log("error", error.message);
+                // console.log("error", error.message);
+                setErrors(error.message);
             });
         // console.log(user);
     };
@@ -47,10 +49,12 @@ const Login = () => {
         gitHubSignIn()
             .then((result) => {
                 const currentUser = result.user;
-                console.log(currentUser);
+                // console.log(currentUser);
+                navigate(from);
             })
             .catch((error) => {
-                console.log("error", error.message);
+                // console.log("error", error.message);
+                setErrors(error.message);
             });
     };
 
@@ -87,12 +91,16 @@ const Login = () => {
                     <form onSubmit={handleLogIn} className="card-body">
                         <div className="form-control">
                             <hr />
-                            <p className=" text-center text-2xl my-2 font-extrabold">OR</p>
+                            <p className=" text-center text-2xl my-2 font-extrabold">
+                                OR
+                            </p>
+                            
                             <hr />
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input
+                                required
                                 type="email"
                                 name="email"
                                 placeholder="email"
@@ -105,6 +113,7 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input
+                                required
                                 type="password"
                                 name="password"
                                 placeholder="password"
