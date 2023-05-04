@@ -62,7 +62,7 @@ const ChefRecipe = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-7">
                 {recipe.map((recipe) => (
                     <Recipe key={recipe.recipeId} recipe={recipe}></Recipe>
                 ))}

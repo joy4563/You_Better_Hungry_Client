@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { FaUser } from "react-icons/fa";
 const Header = () => {
@@ -31,25 +31,33 @@ const Header = () => {
             <div className="flex justify-between  bg-primary text-primary-content px-5 md:px-16 py-3">
                 <div className="">
                     <div className="flex flex-col items-center md:flex-row ">
-                        <Link className="btn btn-ghost normal-case text-lg md:text-xl  hover:bg-green-300 hover:text-black">
+                        <p className="btn btn-ghost normal-case text-lg md:text-xl  hover:text-2xl text-yellow-200">
                             You Better HUngry
-                        </Link>
+                        </p>
 
-                        <div>
+                        <nav>
                             {" "}
-                            <Link
-                                className="btn btn-ghost normal-case  hover:bg-green-300 hover:text-black"
+                            <NavLink
                                 to="/"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? " px-4 py-3 rounded-md bg-green-500 normal-case text-xl mr-2 font-bold"
+                                        : "normal-case mr-2 font-semibold text-lg"
+                                }
                             >
                                 Home
-                            </Link>
-                            <Link
-                                className="btn btn-ghost normal-case hover:bg-green-300 hover:text-black"
+                            </NavLink>
+                            <NavLink
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? " px-4 py-3 rounded-md bg-green-500 normal-case text-xl mr-2 font-bold"
+                                        : "normal-case mr-2 font-semibold text-lg"
+                                }
                                 to="/blog"
                             >
                                 Blog
-                            </Link>
-                        </div>
+                            </NavLink>
+                        </nav>
                     </div>
                 </div>
 

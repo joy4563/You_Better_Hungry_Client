@@ -1,6 +1,7 @@
 import React from "react";
 import { FaBookmark, FaRegStar, FaStar } from "react-icons/fa";
-import Rating from "react-rating";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,18 +28,16 @@ const Recipe = ({ recipe }) => {
                     <span className="font-extrabold text-xl">{recipeName}</span>
                 </p>
                 <div className="flex items-center mb-4">
-                    <div className=" mb-3 flex-grow">
+                    <div className=" mb-3 flex items-center flex-grow">
                         <span className="font-semibold mr-2 ">Ratings:</span>
                         {rating}
+
                         <Rating
-                            readonly
-                            placeholderRating={rating}
-                            emptySymbol={<FaRegStar></FaRegStar>}
-                            placeholderSymbol={
-                                <FaStar className="text-warning"></FaStar>
-                            }
-                            fullSymbol={<FaStar></FaStar>}
-                        ></Rating>
+                            className="ml-2"
+                            style={{ maxWidth: 150 }}
+                            value={rating}
+                            readOnly
+                        />
                     </div>
                     <div>
                         <button
