@@ -19,7 +19,7 @@ const Recipe = ({ recipe }) => {
                 </p>
                 <div className="flex">
                     <div className=" mb-3 flex-grow">
-                        <span className="font-semibold mr-1 ">Ratings:</span>
+                        <span className="font-semibold mr-2 ">Ratings:</span>
                         {rating}
                         <Rating
                             readonly

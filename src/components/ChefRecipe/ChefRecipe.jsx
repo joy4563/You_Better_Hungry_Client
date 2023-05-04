@@ -17,9 +17,9 @@ const ChefRecipe = () => {
         yearsOfExperience,
     } = chefDetails[0];
     return (
-        <div className="text-lg ">
+        <div className="text-lg container mx-auto">
             {/* banner */}
-            <div className="md:flex gap-6  items-center bg-gray-300 border border-gray-400 px-4 py-9 mb-11">
+            <div className="md:flex gap-6  items-center bg-gray-300 border border-gray-400 px-4 py-9 mb-11 rounded-md">
                 <div>
                     <img
                         className="mb-4 md:mb-0 md:mr-72  rounded-md"

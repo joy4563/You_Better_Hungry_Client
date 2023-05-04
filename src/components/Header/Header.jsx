@@ -28,7 +28,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className="flex justify-between  bg-primary text-primary-content px-2 py-3">
+            <div className="flex justify-between  bg-primary text-primary-content px-5 md:px-16 py-3">
                 <div className="">
                     <div className="flex flex-col items-center md:flex-row ">
                         <Link className="btn btn-ghost normal-case text-lg md:text-xl  hover:bg-green-300 hover:text-black">

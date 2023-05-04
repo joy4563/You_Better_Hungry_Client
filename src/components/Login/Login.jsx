@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { FaGithub, FaGoogle } from "react-icons/fa";
@@ -9,8 +9,11 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
+    const [errors, setErrors] = useState("");
+
     const handleLogIn = (event) => {
         event.preventDefault();
+        setErrors("");
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -20,9 +23,10 @@ const Login = () => {
                 const loggedUser = result.user;
                 // console.log(loggedUser);
                 form.reset();
-                navigate(from)
+                navigate(from);
             })
             .catch((error) => {
+                setErrors(error.message);
                 console.log(error);
             });
     };
@@ -83,7 +87,7 @@ const Login = () => {
                     <form onSubmit={handleLogIn} className="card-body">
                         <div className="form-control">
                             <hr />
-                            <p className=" text-center">or</p>
+                            <p className=" text-center text-2xl my-2 font-extrabold">OR</p>
                             <hr />
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -115,7 +119,11 @@ const Login = () => {
                             </p>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+                            {" "}
+                            <p className="text-red-500 font-semibold ">
+                                {errors}
+                            </p>
+                            <button className="btn bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 mt-7">
                                 Log in
                             </button>
                         </div>

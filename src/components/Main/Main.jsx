@@ -5,9 +5,9 @@ import Footer from '../Footer/Footer';
 
 const Main = () => {
     return (
-        <div className='container mx-auto'>
+        <div >
             <Header></Header>
-            <Outlet></Outlet>
+            <Outlet ></Outlet>
             <Footer></Footer>
         </div>
     );

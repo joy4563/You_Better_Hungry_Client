@@ -39,6 +39,7 @@ const Home = () => {
                     enthusiasts around the world.
                 </p>
             </div>
+            <p className="text-3xl md:text-5xl font-extrabold text-center my-10">Available Chefs</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {chefs.map((chef) => (
                     <Chef key={chef.id} chef={chef}></Chef>
