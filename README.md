@@ -1,4 +1,3 @@
-# b7a10-chef-recipe-hunter-client-side-joy4563
 
 b7a10-chef-recipe-hunter-client-side-joy4563 
 created by GitHub Classroom
@@ -15,7 +14,7 @@ Hosted in Vercel -> [You Better Hungry](https://you-better-hungry-server-joy4563
 
 ## Starter Template
 
-Github Repo -> (https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-client-side-joy4563)
+Github Repo Server-> (https://github.com/joy4563/You_Better_Hungry_Server)
 
 ## React Router Dom v6.4
 
